@@ -3,10 +3,14 @@
 Agent to track market and individual stock sentiment. Only for equities.
 
 ## Setup
-
+```powershell
 pip install yfinance
+```
 
-Create file key.py at root including: OPENROUTER_KEY = {your free key}
+Create file key.py at root including: 
+``` python
+OPENROUTER_KEY = {your free key}
+```
 
 ## Pipeline
 
