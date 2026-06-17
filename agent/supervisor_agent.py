@@ -26,7 +26,7 @@ def run_full_sentiment_analysis(ticker: str) -> dict:
             "executive_summary": f"No recent market news or sentiment data points were available for {ticker}."
         }
 
-    serialized_reactions = json.dumps(reactions, indent=2)
+    serialized_reactions = json.dumps(reactions)
 
     history = yf.Ticker(ticker).history(period="5d")
     history = history.reset_index()
@@ -34,7 +34,7 @@ def run_full_sentiment_analysis(ticker: str) -> dict:
     history = history[["Date", "Open", "Close", "Volume"]]
 
     history_dict = history.to_dict('records')
-    serialized_history = json.dumps(history_dict, indent=2)
+    serialized_history = json.dumps(history_dict)
 
     with open(SUPERVISOR_SYSTEM_PROMPT_PATH, "r") as f:
         system_prompt = f.read()

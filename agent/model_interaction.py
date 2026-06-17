@@ -4,6 +4,7 @@ import requests
 
 from key import OPENROUTER_KEY
 
+model = "openrouter/free"
 
 def run_model(system_prompt: str, user_document: str) -> dict:
     """ Runs model as agent with system prompt and user documents """
@@ -14,7 +15,7 @@ def run_model(system_prompt: str, user_document: str) -> dict:
             "Content-Type": "application/json"
         },
         json={
-            "model": "openrouter/free",
+            "model": model,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_document}
